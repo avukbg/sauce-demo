@@ -47,6 +47,8 @@ public class HomepageTest extends BaseTest {
         help.HomeButton.click();
     }
 
+    //dodaj filter i side bar page sa logout i socials
+
 
     @AfterClass
     public void tearDown() {
