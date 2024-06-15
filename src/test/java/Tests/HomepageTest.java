@@ -43,7 +43,7 @@ public class HomepageTest extends BaseTest {
     public void confirmOrder() {
         help.FinishButton.click();
         Assert.assertEquals(help.ThankYou.getText(), "Thank you for your order!");
-        help.HomeButton.click();
+        help.HomeButton.click() ;
     }
 
 
