@@ -6,11 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.time.Duration;
+public class HelperPage extends BaseTest {
 
-public class Help extends BaseTest {
-
-    public Help() {
+    public HelperPage() {
         PageFactory.initElements(driver, this);
     }
 

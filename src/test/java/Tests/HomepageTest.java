@@ -1,7 +1,7 @@
 package Tests;
 
 import Base.BaseTest;
-import Pages.Help;
+import Pages.HelperPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -13,7 +13,7 @@ public class HomepageTest extends BaseTest {
     public void pageSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        Help.login();
+        HelperPage.login();
     }
 
     @Test (priority = 10)
@@ -26,24 +26,24 @@ public class HomepageTest extends BaseTest {
 
     @Test (priority = 20)
     public void emptyCart() {
-        help.toCheckout();
-        Assert.assertEquals(help.Total.getText(), "Total: $0.00");
-        help.backToMain();
+        helperPage.toCheckout();
+        Assert.assertEquals(helperPage.Total.getText(), "Total: $0.00");
+        helperPage.backToMain();
 
     }
 
     @Test (priority = 30)
     public void addAllItems() {
         homePage.addAll();
-        help.toCheckout();
-        Assert.assertEquals(help.Total.getText(), "Total: $140.34");
+        helperPage.toCheckout();
+        Assert.assertEquals(helperPage.Total.getText(), "Total: $140.34");
     }
 
     @Test (priority = 40)                   //mozda odvoji check out 1 i 2 kao pages
     public void confirmOrder() {
-        help.FinishButton.click();
-        Assert.assertEquals(help.ThankYou.getText(), "Thank you for your order!");
-        help.HomeButton.click() ;
+        helperPage.FinishButton.click();
+        Assert.assertEquals(helperPage.ThankYou.getText(), "Thank you for your order!");
+        helperPage.HomeButton.click();
     }
 
 
