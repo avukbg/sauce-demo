@@ -10,16 +10,16 @@ import java.util.List;
 public class HomePage extends BaseTest {
 
     @FindBy(className = "shopping_cart_link")
-    public WebElement Cart;
+    public WebElement cart;
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
-    public WebElement AddBackpack;
+    public WebElement addBackpack;
     @FindBy(id = "remove-sauce-labs-backpack")
-    public WebElement RemoveBackpack;
+    public WebElement removeBackpack;
     @FindBy(className = "shopping_cart_badge")
-    public WebElement CartBadge;
+    public WebElement cartBadge;
 
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
-    public List <WebElement> AddButtons;
+    public List <WebElement> addButtons;
 
 
     public HomePage() {
@@ -29,15 +29,15 @@ public class HomePage extends BaseTest {
     //------------------------------------------------------------------
 
     public void addBackpackToCart() {
-        AddBackpack.click();
+        addBackpack.click();
     }
 
     public void removeBackpackFromCart() {
-        RemoveBackpack.click();
+        removeBackpack.click();
     }
 
     public void addAll() {
-        for (WebElement x : AddButtons) {
+        for (WebElement x : addButtons) {
             x.click();
         }
     }

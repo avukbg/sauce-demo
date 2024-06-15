@@ -3,6 +3,7 @@ package Base;
 import Pages.Help;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.SideHomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +19,7 @@ public class BaseTest {
     public LoginPage loginPage;
     public HomePage homePage;
     public Help help;
+    public SideHomePage sideHomePage;
 
     @BeforeClass
     public void setUp() {
@@ -27,6 +29,7 @@ public class BaseTest {
         loginPage = new LoginPage();
         homePage = new HomePage();
         help = new Help();
+        sideHomePage = new SideHomePage();
     }
 
    /* public static void login() {

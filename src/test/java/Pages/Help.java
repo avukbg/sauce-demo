@@ -15,50 +15,50 @@ public class Help extends BaseTest {
 
     //boring form stuff
     @FindBy(className = "shopping_cart_link")
-    public WebElement Cart;
+    public WebElement cart;
     @FindBy(id = "checkout")
-    public WebElement CheckoutButton;
+    public WebElement checkoutButton;
     @FindBy(id = "first-name")
-    public WebElement FormName;
+    public WebElement formName;
     @FindBy(id = "last-name")
-    public WebElement FormLastname;
+    public WebElement formLastname;
     @FindBy(id = "postal-code")
-    public WebElement FormPost;
+    public WebElement formPost;
     @FindBy(id = "continue")
-    public WebElement FormContinue;
+    public WebElement formContinue;
 
     //checkout
 
     @FindBy(className = "summary_total_label")
-    public WebElement Total;
+    public WebElement total;
     @FindBy(id = "finish")
-    public WebElement FinishButton;
+    public WebElement finishButton;
     @FindBy(className = "complete-header")
-    public WebElement ThankYou;
+    public WebElement thankYou;
     @FindBy(id = "back-to-products")
-    public WebElement HomeButton;
+    public WebElement homeButton;
 
     //--------------------------------------------------------------------------
 
     //tranzicije
 
     public void toCheckout() {
-        Cart.click();
-        CheckoutButton.click();
-        FormName.sendKeys("Tikvica");
-        FormLastname.sendKeys("Jagoda");
-        FormPost.sendKeys("11000");
-        FormContinue.click();
+        cart.click();
+        checkoutButton.click();
+        formName.sendKeys("Tikvica");
+        formLastname.sendKeys("Jagoda");
+        formPost.sendKeys("11000");
+        formContinue.click();
     }
 
     public void backToMain() {
-        FinishButton.click();
-        HomeButton.click();
+        finishButton.click();
+        homeButton.click();
     }
 
     //---------------------------------------------------------------------------
     //login
-    public static void login() {
+    public void login() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");

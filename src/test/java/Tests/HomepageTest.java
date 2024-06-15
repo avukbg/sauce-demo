@@ -1,7 +1,6 @@
 package Tests;
 
 import Base.BaseTest;
-import Pages.Help;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -13,41 +12,42 @@ public class HomepageTest extends BaseTest {
     public void pageSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        Help.login();
+        help.login();
     }
 
     @Test(priority = 10)
     public void cartBadgePresent() {
         homePage.addBackpackToCart();
-        Assert.assertTrue(homePage.CartBadge.isDisplayed());
-        Assert.assertEquals(homePage.CartBadge.getText(), "1");
+        Assert.assertTrue(homePage.cartBadge.isDisplayed());
+        Assert.assertEquals(homePage.cartBadge.getText(), "1");
     }
 
     @Test(priority = 20)
     public void emptyCart() {
         homePage.removeBackpackFromCart();
-        Assert.assertTrue(homePage.AddBackpack.isDisplayed());
+        Assert.assertTrue(homePage.addBackpack.isDisplayed());
         help.toCheckout();
-        Assert.assertEquals(help.Total.getText(), "Total: $0.00");
+        Assert.assertEquals(help.total.getText(), "Total: $0.00");
         help.backToMain();
     }
 
     @Test(priority = 30)
     public void fullCart() {
         homePage.addAll();
-        Assert.assertEquals(homePage.CartBadge.getText(), "6");
+        Assert.assertEquals(homePage.cartBadge.getText(), "6");
         help.toCheckout();
-        Assert.assertEquals(help.Total.getText(), "Total: $140.34");
+        Assert.assertEquals(help.total.getText(), "Total: $140.34");
     }
 
     @Test(priority = 40)                   //mozda odvoji check out 1 i 2 kao pages
     public void confirmOrder() {
-        help.FinishButton.click();
-        Assert.assertEquals(help.ThankYou.getText(), "Thank you for your order!");
-        help.HomeButton.click();
+        help.finishButton.click();
+        Assert.assertEquals(help.thankYou.getText(), "Thank you for your order!");
+        help.homeButton.click();
     }
 
     //dodaj filter i side bar page sa logout i socials
+    //mala veliak slova
 
 
     @AfterClass
