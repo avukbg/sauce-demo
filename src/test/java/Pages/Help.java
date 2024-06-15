@@ -58,7 +58,7 @@ public class Help extends BaseTest {
 
     //---------------------------------------------------------------------------
     //login
-    public static void login() {
+    public void login() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");

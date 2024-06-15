@@ -13,7 +13,7 @@ public class HomepageTest extends BaseTest {
     public void pageSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        Help.login();
+        help.login();
     }
 
     @Test(priority = 10)
