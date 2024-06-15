@@ -46,6 +46,11 @@ public class HomepageTest extends BaseTest {
         help.HomeButton.click();
     }
 
+    @Test (priority = 50)
+    public void socials() {
+
+    }
+
    @AfterClass
     public void tearDown() {
         driver.manage().deleteAllCookies();
