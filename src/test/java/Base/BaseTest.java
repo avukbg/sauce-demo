@@ -1,8 +1,8 @@
 package Base;
 
+import Pages.Help;
 import Pages.HomePage;
 import Pages.LoginPage;
-import Pages.HelperPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +17,7 @@ public class BaseTest {
     public WebDriverWait wait;
     public LoginPage loginPage;
     public HomePage homePage;
-    public HelperPage helperPage;
+    public Help help;
 
     @BeforeClass
     public void setUp() {
@@ -26,7 +26,7 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         loginPage = new LoginPage();
         homePage = new HomePage();
-        helperPage = new HelperPage();
+        help = new Help();
     }
 
    /* public static void login() {

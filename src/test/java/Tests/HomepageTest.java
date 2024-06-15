@@ -16,38 +16,39 @@ public class HomepageTest extends BaseTest {
         Help.login();
     }
 
-    @Test (priority = 10)
-    public void cartBadge() {
+    @Test(priority = 10)
+    public void cartBadgePresent() {
         homePage.addBackpackToCart();
         Assert.assertTrue(homePage.CartBadge.isDisplayed());
         Assert.assertEquals(homePage.CartBadge.getText(), "1");
-        homePage.removeBackpackFromCart();
     }
 
-    @Test (priority = 20)
+    @Test(priority = 20)
     public void emptyCart() {
+        homePage.removeBackpackFromCart();
+        Assert.assertTrue(homePage.AddBackpack.isDisplayed());
         help.toCheckout();
         Assert.assertEquals(help.Total.getText(), "Total: $0.00");
         help.backToMain();
-
     }
 
-    @Test (priority = 30)
-    public void addAllItems() {
+    @Test(priority = 30)
+    public void fullCart() {
         homePage.addAll();
+        Assert.assertEquals(homePage.CartBadge.getText(), "6");
         help.toCheckout();
         Assert.assertEquals(help.Total.getText(), "Total: $140.34");
     }
 
-    @Test (priority = 40)                   //mozda odvoji check out 1 i 2 kao pages
+    @Test(priority = 40)                   //mozda odvoji check out 1 i 2 kao pages
     public void confirmOrder() {
         help.FinishButton.click();
         Assert.assertEquals(help.ThankYou.getText(), "Thank you for your order!");
-        help.HomeButton.click() ;
+        help.HomeButton.click();
     }
 
 
-   @AfterClass
+    @AfterClass
     public void tearDown() {
         driver.manage().deleteAllCookies();
         driver.quit();
