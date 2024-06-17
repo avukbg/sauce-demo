@@ -4,6 +4,9 @@ import Base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginPage extends BaseTest {
 
@@ -16,9 +19,12 @@ public class LoginPage extends BaseTest {
     @FindBy(css = "[data-test='error']")
     public WebElement errorBox;
 
+
     public LoginPage() {
         PageFactory.initElements(driver, this);
     }
+
+    public List<String> validUsers = new ArrayList<>(Arrays.asList("standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"));
 
 
     //----------------------------
@@ -53,6 +59,10 @@ public class LoginPage extends BaseTest {
 
     public String getErrorWrongCred() {
         return "Epic sadface: Username and password do not match any user in this service";
+    }
+
+    public String getErrorLockedOut() {
+        return "Epic sadface: Sorry, this user has been locked out.";
     }
 
 

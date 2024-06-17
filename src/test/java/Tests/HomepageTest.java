@@ -3,7 +3,6 @@ package Tests;
 import Base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
 import java.time.Duration;
 
 public class HomepageTest extends BaseTest {
@@ -11,7 +10,7 @@ public class HomepageTest extends BaseTest {
     @BeforeClass
     public void pageSetUp() {
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         help.login();
     }
 
@@ -46,7 +45,8 @@ public class HomepageTest extends BaseTest {
         help.homeButton.click();
     }
 
-    //dodaj filter i side bar page sa logout i socials
+    //dodaj filter i side bar page sa logout
+    //images displayed
 
 
 

@@ -31,28 +31,8 @@ public class BaseTest {
         help = new Help();
         sideHomePage = new SideHomePage();
     }
+}
 
-   /* public static void login() {
-        driver.get("https://www.saucedemo.com/");
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
-        driver.findElement(By.id("password")).submit();
-    }
 
-    public static void miniSetUp() {
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        /*driver.manage().deleteAllCookies();
-        driver.navigate().refresh();*/
-    }
-
-    /*public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("", element);
-    }
-
-    public void waitForElementVisibility(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }*/
 
 

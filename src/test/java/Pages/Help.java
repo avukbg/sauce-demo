@@ -8,11 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Help extends BaseTest {
 
-    public Help() {
-        PageFactory.initElements(driver, this);
-    }
-
-
     //boring form stuff
     @FindBy(className = "shopping_cart_link")
     public WebElement cart;
@@ -26,17 +21,19 @@ public class Help extends BaseTest {
     public WebElement formPost;
     @FindBy(id = "continue")
     public WebElement formContinue;
-
-    //checkout
-
     @FindBy(className = "summary_total_label")
     public WebElement total;
+
+    //checkout
     @FindBy(id = "finish")
     public WebElement finishButton;
     @FindBy(className = "complete-header")
     public WebElement thankYou;
     @FindBy(id = "back-to-products")
     public WebElement homeButton;
+    public Help() {
+        PageFactory.initElements(driver, this);
+    }
 
     //--------------------------------------------------------------------------
 
@@ -57,6 +54,7 @@ public class Help extends BaseTest {
     }
 
     //---------------------------------------------------------------------------
+
     //login
     public void login() {
         driver.get("https://www.saucedemo.com/");
@@ -65,10 +63,11 @@ public class Help extends BaseTest {
         driver.findElement(By.id("password")).submit();
     }
 
-  /*  public static void miniSetUp() {
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-    }*/
+    //logout
+    public void logout() {
+        driver.findElement(By.id("react-burger-menu-btn")).click();
+        driver.findElement(By.id("logout_sidebar_link")).click();
+    }
 
     //maybe
 
