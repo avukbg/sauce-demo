@@ -4,6 +4,7 @@ import Base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -32,7 +33,26 @@ public class SideHomepageTest extends BaseTest {
         }
     }
 
-    // side bar page sa logout
+    @Test(priority = 20)
+    public void burgerContent() {
+        sideHomePage.motherBurger.click();
+        Assert.assertEquals(sideHomePage.burgerList.size(), 4);
+    }
+
+    @Test(priority = 30)
+    public void about() {
+        sideHomePage.motherBurger.click();
+        sideHomePage.sideAbout.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/");
+        driver.navigate().back();
+    }
+
+    @Test(priority = 40)
+    public void loggingOut() {
+        sideHomePage.motherBurger.click();
+        sideHomePage.sideLogout.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+    }
 
     @AfterClass
     public void tearDown() {
