@@ -4,7 +4,6 @@ import Base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -59,6 +58,5 @@ public class SideHomepageTest extends BaseTest {
         driver.manage().deleteAllCookies();
         driver.quit();
     }
-
 }
 
