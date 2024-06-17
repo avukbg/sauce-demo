@@ -19,8 +19,25 @@ public class HomePage extends BaseTest {
     public WebElement cartBadge;
 
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
-    public List <WebElement> addButtons;
+    public List<WebElement> addButtons;
 
+    //filter
+
+    @FindBy(className = "product_sort_container")
+    public WebElement motherFilter;
+    @FindBy(css = "[value='za']")
+    public WebElement filterZa;
+    @FindBy(css = "[value='lohi']")
+    public WebElement filterLohi;
+    @FindBy(css = "[value='hilo']")
+    public WebElement filterHilo;
+    @FindBy(css = "[value='az']")
+    public WebElement filterAz;
+
+    @FindBy(className = "inventory_item_name")
+    public List<WebElement> productNames;
+    @FindBy(className = "inventory_item_price")
+    public List<WebElement> productPrices;
 
     public HomePage() {
         PageFactory.initElements(driver, this);
@@ -41,8 +58,5 @@ public class HomePage extends BaseTest {
             x.click();
         }
     }
-
-
-
 
 }

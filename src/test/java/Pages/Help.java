@@ -31,6 +31,7 @@ public class Help extends BaseTest {
     public WebElement thankYou;
     @FindBy(id = "back-to-products")
     public WebElement homeButton;
+
     public Help() {
         PageFactory.initElements(driver, this);
     }
