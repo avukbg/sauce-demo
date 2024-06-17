@@ -53,6 +53,8 @@ public class SideHomepageTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
 
+    //dodaj checkout page 1 i 2
+
     @AfterClass
     public void tearDown() {
         driver.manage().deleteAllCookies();
