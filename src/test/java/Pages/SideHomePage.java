@@ -23,11 +23,9 @@ public class SideHomePage extends BaseTest {
     public List <WebElement> buttons;
     public List <String> urls = new ArrayList<>(Arrays.asList("https://x.com/saucelabs","https://www.facebook.com/saucelabs","https://www.linkedin.com/company/sauce-labs/"));
 
-
     //-------------------------------------------------------
 
     public void switchToNewTab() {
-
         String originalHandle = driver.getWindowHandle();
         for (String handle : driver.getWindowHandles()) {
             if (!handle.equals(originalHandle)) {
