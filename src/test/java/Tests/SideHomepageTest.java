@@ -2,11 +2,13 @@ package Tests;
 
 import Base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.beans.Visibility;
 import java.time.Duration;
 
 public class SideHomepageTest extends BaseTest {
@@ -51,6 +53,16 @@ public class SideHomepageTest extends BaseTest {
         sideHomePage.motherBurger.click();
         sideHomePage.sideLogout.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+    }
+
+    @Test(priority = 50)
+    public void closeBm()  {
+        sideHomePage.motherBurger.click();
+        wait.until(ExpectedConditions.visibilityOf(sideHomePage.sideLogout));
+        Assert.assertTrue(sideHomePage.sideLogout.isDisplayed());
+        sideHomePage.xBurger.click();
+        wait.until(ExpectedConditions.invisibilityOf(sideHomePage.sideLogout));
+        Assert.assertFalse(sideHomePage.sideLogout.isDisplayed());
     }
 
     //dodaj checkout page 1 i 2

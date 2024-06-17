@@ -29,6 +29,8 @@ public class SideHomePage extends BaseTest {
     public WebElement sideLogout;
     @FindBy(css = ".bm-item.menu-item")
     public List <WebElement> burgerList;
+    @FindBy(id = "react-burger-cross-btn")
+    public WebElement xBurger;
 
 
     public SideHomePage() {
