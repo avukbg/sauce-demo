@@ -66,6 +66,7 @@ public class SideHomepageTest extends BaseTest {
     }
 
     //dodaj checkout page 1 i 2
+    //dodaj reset i all mozda
 
     @AfterClass
     public void tearDown() {
