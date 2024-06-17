@@ -1,10 +1,12 @@
 package Pages;
 
 import Base.BaseTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BaseTest {
@@ -39,6 +41,18 @@ public class HomePage extends BaseTest {
     @FindBy(className = "inventory_item_price")
     public List<WebElement> productPrices;
 
+    //slike
+    public List<WebElement> getImgs() {
+        List<WebElement> imgs = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            String imageId = "item_" + i + "_img_link";
+            WebElement imageElement = driver.findElement(By.id(imageId));
+            imgs.add(imageElement);
+        }
+        return imgs;
+    }
+
+
     public HomePage() {
         PageFactory.initElements(driver, this);
     }
@@ -58,5 +72,8 @@ public class HomePage extends BaseTest {
             x.click();
         }
     }
+
+    //slike
+
 
 }

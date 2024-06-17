@@ -96,7 +96,6 @@ public class HomepageTest extends BaseTest {
 
     @Test(priority = 80)
     public void filterSortAz() {
-
         homePage.motherFilter.click();
         homePage.filterAz.click();
         List<String> scrapedNames = new ArrayList<>();
@@ -109,9 +108,14 @@ public class HomepageTest extends BaseTest {
             Assert.assertTrue(currentName.compareTo(nextName) <= 0);
         }
     }
-    //mb images displayed
 
-
+    @Test(priority = 90)
+    public void allImages() {
+        Assert.assertEquals(homePage.getImgs().size(), 6);
+        for (WebElement element : homePage.getImgs()) {
+            Assert.assertTrue(element.isDisplayed());
+        }
+    }
 
     @AfterClass
     public void tearDown() {
