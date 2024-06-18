@@ -16,6 +16,11 @@ public class LoginTest extends BaseTest {
 
    }
 
+   @BeforeMethod
+   public void refresh() {
+       driver.navigate().refresh();
+   }
+
     @Test(priority = 10)
     public void emptyLogin() {
         loginPage.clickOnLoginButton();
@@ -52,8 +57,6 @@ public class LoginTest extends BaseTest {
            loginPage.loginForm(validUser, "secret_sauce");
            Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
            help.logout();
-           //driver.manage().deleteAllCookies();
-           //driver.navigate().refresh();
        }
     }
 

@@ -25,8 +25,7 @@ public class SideHomepageTest extends BaseTest {
             sideHomePage.buttons.get(i).click();
             sideHomePage.switchToNewTab();
             wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-            String currentUrl = driver.getCurrentUrl();
-            Assert.assertEquals(currentUrl, sideHomePage.urls.get(i));
+            Assert.assertEquals(driver.getCurrentUrl(), sideHomePage.urls.get(i));
             driver.close();
             driver.switchTo().window(main);
         }
