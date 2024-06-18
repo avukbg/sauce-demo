@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class CheckoutOneTest extends BaseTest {
+public class CheckoutsTest extends BaseTest {
 
     @BeforeClass
     public void pageSetUp() {
@@ -21,12 +21,12 @@ public class CheckoutOneTest extends BaseTest {
     public void priceOne() {
         homePage.addBackpackToCart();
         homePage.cart.click();
-        Assert.assertEquals(checkoutOnePage.priceOne.getText(), "$29.99");
+        Assert.assertEquals(checkoutPages.priceOne.getText(), "$29.99");
     }
 
     @Test(priority = 92)
     public void removeOne() {
-        checkoutOnePage.removeBpOne.click();
+        checkoutPages.removeBpOne.click();
         help.smallCheckout();
         Assert.assertEquals(help.total.getText(), "Total: $0.00");
         help.backToMain();
@@ -35,7 +35,7 @@ public class CheckoutOneTest extends BaseTest {
     @Test(priority = 93)
     public void continueOne() {
         homePage.cart.click();
-        checkoutOnePage.backOne.click();
+        checkoutPages.backOne.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
@@ -44,6 +44,21 @@ public class CheckoutOneTest extends BaseTest {
         homePage.cart.click();
         help.checkoutButton.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
+    }
+
+    @Test(priority = 95)
+    public void cancelTwo() {
+        checkoutPages.cancelTwo.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/cart.html");
+    }
+
+    @Test (priority = 96)
+    public void finalCancel() {
+        sideHomePage.motherBurger.click();
+        sideHomePage.sideAll.click();
+        help.toCheckout();
+        checkoutPages.cancelTwo.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
     @AfterClass

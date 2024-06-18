@@ -3,6 +3,7 @@ package Tests;
 import Base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -21,10 +22,12 @@ public class SideHomepageTest extends BaseTest {
     @Test(priority = 10)
     public void socials() {
         String main = driver.getWindowHandle();
+
         for (int i = 0; i < 3; i++) {
             sideHomePage.buttons.get(i).click();
             sideHomePage.switchToNewTab();
-            wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+            //wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+            wait.until(ExpectedConditions.urlToBe(sideHomePage.urls.get(i)));
             Assert.assertEquals(driver.getCurrentUrl(), sideHomePage.urls.get(i));
             driver.close();
             driver.switchTo().window(main);
