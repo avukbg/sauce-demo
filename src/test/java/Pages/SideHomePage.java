@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SideHomePage extends BaseTest {
-   //socials
+    //socials
     @FindBy(className = "social_twitter")
     public WebElement xButton;
     @FindBy(className = "social_facebook")
@@ -28,12 +28,12 @@ public class SideHomePage extends BaseTest {
     @FindBy(id = "logout_sidebar_link")
     public WebElement sideLogout;
     @FindBy(css = ".bm-item.menu-item")
-    public List <WebElement> burgerList;
+    public List<WebElement> burgerList;
     @FindBy(id = "react-burger-cross-btn")
     public WebElement xBurger;
-    @FindBy (id = "inventory_sidebar_link")
+    @FindBy(id = "inventory_sidebar_link")
     public WebElement sideAll;
-    @FindBy (id = "reset_sidebar_link")
+    @FindBy(id = "reset_sidebar_link")
     public WebElement sideReset;
 
 

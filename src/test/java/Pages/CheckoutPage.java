@@ -15,6 +15,7 @@ public class CheckoutPage extends BaseTest {
     public WebElement removeBpOne;
     @FindBy(id = "cancel")
     public WebElement cancelTwo;
+
     public CheckoutPage() {
         PageFactory.initElements(driver, this);
     }

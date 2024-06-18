@@ -78,15 +78,4 @@ public class Help extends BaseTest {
         driver.findElement(By.id("react-burger-menu-btn")).click();
         driver.findElement(By.id("logout_sidebar_link")).click();
     }
-
-    //maybe
-
-    /*public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("", element);
-    }
-
-    public void waitForElementVisibility(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }*/
 }

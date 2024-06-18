@@ -63,6 +63,4 @@ public class LoginPage extends BaseTest {
     public String getErrorLockedOut() {
         return "Epic sadface: Sorry, this user has been locked out.";
     }
-
-
 }

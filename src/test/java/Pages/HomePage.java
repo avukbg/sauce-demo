@@ -15,8 +15,6 @@ public class HomePage extends BaseTest {
     public WebElement cart;
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     public WebElement addBackpack;
-    @FindBy(id = "remove-sauce-labs-backpack")
-    public WebElement removeBackpack;
     @FindBy(className = "shopping_cart_badge")
     public WebElement cartBadge;
 
@@ -43,6 +41,10 @@ public class HomePage extends BaseTest {
     @FindBy(className = "inventory_item_price")
     public List<WebElement> productPrices;
 
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
+
     //slike
     public List<WebElement> getImgs() {
         List<WebElement> imgs = new ArrayList<>();
@@ -52,11 +54,6 @@ public class HomePage extends BaseTest {
             imgs.add(imageElement);
         }
         return imgs;
-    }
-
-
-    public HomePage() {
-        PageFactory.initElements(driver, this);
     }
 
     //------------------------------------------------------------------
@@ -71,10 +68,9 @@ public class HomePage extends BaseTest {
         }
     }
 
-   public void removeAll() {
+    public void removeAll() {
         for (WebElement x : removeButtons) {
             x.click();
         }
     }
-
 }

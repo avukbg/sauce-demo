@@ -3,23 +3,24 @@ package Tests;
 import Base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
 import java.time.Duration;
 
 
 public class LoginTest extends BaseTest {
 
-   @BeforeClass
-   public void pageSetUp() {
-       driver.manage().window().maximize();
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-       driver.get("https://www.saucedemo.com/");
+    @BeforeClass
+    public void pageSetUp() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://www.saucedemo.com/");
 
-   }
+    }
 
-   @BeforeMethod
-   public void refresh() {
-       driver.navigate().refresh();
-   }
+    @BeforeMethod
+    public void refresh() {
+        driver.navigate().refresh();
+    }
 
     @Test(priority = 10)
     public void emptyLogin() {
@@ -52,12 +53,12 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(priority = 60)
-    public void validUserValidPass()  {
-       for (String validUser : loginPage.validUsers) {
-           loginPage.loginForm(validUser, "secret_sauce");
-           Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
-           help.logout();
-       }
+    public void validUserValidPass() {
+        for (String validUser : loginPage.validUsers) {
+            loginPage.loginForm(validUser, "secret_sauce");
+            Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+            help.logout();
+        }
     }
 
     @AfterClass
@@ -65,5 +66,4 @@ public class LoginTest extends BaseTest {
         driver.manage().deleteAllCookies();
         driver.quit();
     }
-
 }

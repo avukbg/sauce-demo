@@ -54,7 +54,7 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 50)
-    public void bnResetState() {
+    public void bmResetState() {
         homePage.addBackpackToCart();
         sideHomePage.motherBurger.click();
         sideHomePage.sideReset.click();
@@ -63,7 +63,7 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 60)
-    public void closeBm()  {
+    public void bmClose() {
         sideHomePage.motherBurger.click();
         wait.until(ExpectedConditions.visibilityOf(sideHomePage.sideLogout));
         Assert.assertTrue(sideHomePage.sideLogout.isDisplayed());
