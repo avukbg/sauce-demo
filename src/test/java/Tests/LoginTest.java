@@ -8,7 +8,7 @@ import java.time.Duration;
 
 public class LoginTest extends BaseTest {
 
-   @BeforeMethod
+   @BeforeClass
    public void pageSetUp() {
        driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

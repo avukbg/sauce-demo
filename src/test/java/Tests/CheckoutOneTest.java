@@ -17,14 +17,14 @@ public class CheckoutOneTest extends BaseTest {
         help.login();
     }
 
-    @Test (priority = 10)
+    @Test (priority = 110)
     public void priceOne() {
         homePage.addBackpackToCart();
         homePage.cart.click();
         Assert.assertEquals(checkoutOnePage.priceOne.getText(), "$29.99");
     }
 
-    @Test(priority = 20)
+    @Test(priority = 120)
     public void removeOne() {
         checkoutOnePage.removeBpOne.click();
         help.smallCheckout();
@@ -32,14 +32,14 @@ public class CheckoutOneTest extends BaseTest {
         help.backToMain();
     }
 
-    @Test(priority = 30)
+    @Test(priority = 130)
     public void continueOne() {
         homePage.cart.click();
         checkoutOnePage.backOne.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
-    @Test(priority = 40)
+    @Test(priority = 140)
     public void finishOne() {
         homePage.cart.click();
         help.checkoutButton.click();

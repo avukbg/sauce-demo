@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class SideHomepageTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeClass
     public void pageSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -40,20 +40,12 @@ public class SideHomepageTest extends BaseTest {
 
     @Test(priority = 30)
     public void about() {
-        sideHomePage.motherBurger.click();
         sideHomePage.sideAbout.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/");
         driver.navigate().back();
     }
 
     @Test(priority = 40)
-    public void loggingOut() {
-        sideHomePage.motherBurger.click();
-        sideHomePage.sideLogout.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
-    }
-
-    @Test(priority = 50)
     public void allItems() {
         homePage.cart.click();
         sideHomePage.motherBurger.click();
@@ -61,7 +53,7 @@ public class SideHomepageTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
-    @Test(priority = 60)
+    @Test(priority = 50)
     public void resetState() {
         homePage.addBackpackToCart();
         sideHomePage.motherBurger.click();
@@ -70,7 +62,7 @@ public class SideHomepageTest extends BaseTest {
         Assert.assertEquals(help.total.getText(), "Total: $0.00");
     }
 
-    @Test(priority = 70)
+    @Test(priority = 60)
     public void closeBm()  {
         sideHomePage.motherBurger.click();
         wait.until(ExpectedConditions.visibilityOf(sideHomePage.sideLogout));
@@ -78,6 +70,13 @@ public class SideHomepageTest extends BaseTest {
         sideHomePage.xBurger.click();
         wait.until(ExpectedConditions.invisibilityOf(sideHomePage.sideLogout));
         Assert.assertFalse(sideHomePage.sideLogout.isDisplayed());
+    }
+
+    @Test(priority = 70)
+    public void loggingOut() {
+        sideHomePage.motherBurger.click();
+        sideHomePage.sideLogout.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
 
     //dodaj checkout page 1 i 2
