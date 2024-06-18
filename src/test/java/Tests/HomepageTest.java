@@ -19,25 +19,22 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 10)
-    public void cartBadgePresent() {
-        homePage.addBackpackToCart();
-        Assert.assertTrue(homePage.cartBadge.isDisplayed());
-        Assert.assertEquals(homePage.cartBadge.getText(), "1");
+    public void addAll() {
+        homePage.addAll();
+        for (WebElement x : homePage.removeButtons) {
+            Assert.assertTrue(x.isDisplayed());
+        }
     }
 
     @Test(priority = 20)
-    public void emptyCart() {
-        homePage.removeBackpackFromCart();
-        Assert.assertTrue(homePage.addBackpack.isDisplayed());
-        help.toCheckout();
-        Assert.assertEquals(help.total.getText(), "Total: $0.00");
-        help.backToMain();
+    public void cartBadgePresent() {
+        Assert.assertTrue(homePage.cartBadge.isDisplayed());
+        Assert.assertEquals(homePage.cartBadge.getText(), "6");
     }
+
 
     @Test(priority = 30)
     public void fullCart() {
-        homePage.addAll();
-        Assert.assertEquals(homePage.cartBadge.getText(), "6");
         help.toCheckout();
         Assert.assertEquals(help.total.getText(), "Total: $140.34");
     }
@@ -50,6 +47,22 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 50)
+    public void removeAll() {
+        homePage.addAll();
+        homePage.removeAll();
+        for (WebElement x : homePage.addButtons) {
+            Assert.assertTrue(x.isDisplayed());
+        }
+    }
+
+    @Test(priority = 60)
+    public void emptyCart() {
+        help.toCheckout();
+        Assert.assertEquals(help.total.getText(), "Total: $0.00");
+        help.backToMain();
+    }
+
+    @Test(priority = 70)
     public void filterSortZa() {
         homePage.motherFilter.click();
         homePage.filterZa.click();
@@ -64,7 +77,7 @@ public class HomepageTest extends BaseTest {
         }
     }
 
-    @Test(priority = 60)
+    @Test(priority = 80)
     public void filterSortLohi() {
         homePage.motherFilter.click();
         homePage.filterLohi.click();
@@ -79,7 +92,7 @@ public class HomepageTest extends BaseTest {
         }
     }
 
-    @Test(priority = 70)
+    @Test(priority = 90)
     public void filterSortHilo() {
         homePage.motherFilter.click();
         homePage.filterHilo.click();
@@ -94,7 +107,7 @@ public class HomepageTest extends BaseTest {
         }
     }
 
-    @Test(priority = 80)
+    @Test(priority = 100)
     public void filterSortAz() {
         homePage.motherFilter.click();
         homePage.filterAz.click();
@@ -109,7 +122,7 @@ public class HomepageTest extends BaseTest {
         }
     }
 
-    @Test(priority = 90)
+    @Test(priority = 110)
     public void allImages() {
         Assert.assertEquals(homePage.getImgs().size(), 6);
         for (WebElement element : homePage.getImgs()) {

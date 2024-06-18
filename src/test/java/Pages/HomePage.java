@@ -22,6 +22,8 @@ public class HomePage extends BaseTest {
 
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
     public List<WebElement> addButtons;
+    @FindBy(css = ".btn.btn_secondary.btn_small.btn_inventory")
+    public List<WebElement> removeButtons;
 
     //filter
 
@@ -63,17 +65,16 @@ public class HomePage extends BaseTest {
         addBackpack.click();
     }
 
-    public void removeBackpackFromCart() {
-        removeBackpack.click();
-    }
-
     public void addAll() {
         for (WebElement x : addButtons) {
             x.click();
         }
     }
 
-    //slike
-
+   public void removeAll() {
+        for (WebElement x : removeButtons) {
+            x.click();
+        }
+    }
 
 }
