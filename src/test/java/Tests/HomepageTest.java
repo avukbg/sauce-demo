@@ -43,7 +43,7 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 40)
-    public void confirmOrder() {
+    public void confirmOrder() {        //prebaci u checkout?
         help.finishButton.click();
         Assert.assertEquals(help.thankYou.getText(), "Thank you for your order!");
         help.homeButton.click();

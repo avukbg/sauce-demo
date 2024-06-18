@@ -4,12 +4,10 @@ import Base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-import java.beans.Visibility;
 import java.time.Duration;
+
 
 public class SideHomepageTest extends BaseTest {
 
@@ -65,8 +63,8 @@ public class SideHomepageTest extends BaseTest {
         Assert.assertFalse(sideHomePage.sideLogout.isDisplayed());
     }
 
+    //dodaj reset i all
     //dodaj checkout page 1 i 2
-    //dodaj reset i all mozda
 
     @AfterClass
     public void tearDown() {
