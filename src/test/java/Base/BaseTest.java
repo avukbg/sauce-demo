@@ -17,7 +17,7 @@ public class BaseTest {
     public HomePage homePage;
     public Help help;
     public SideHomePage sideHomePage;
-    public ChekoutPages checkoutPages;
+    public ChekoutPage checkoutPage;
 
     @BeforeClass
     public void setUp() {
@@ -28,7 +28,7 @@ public class BaseTest {
         homePage = new HomePage();
         help = new Help();
         sideHomePage = new SideHomePage();
-        checkoutPages = new ChekoutPages();
+        checkoutPage = new ChekoutPage();
     }
 }
 

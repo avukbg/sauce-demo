@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ChekoutPages extends BaseTest {
+public class ChekoutPage extends BaseTest {
 
     @FindBy(className = "inventory_item_price")
     public WebElement priceOne;
@@ -15,7 +15,7 @@ public class ChekoutPages extends BaseTest {
     public WebElement removeBpOne;
     @FindBy(id = "cancel")
     public WebElement cancelTwo;
-    public ChekoutPages() {
+    public ChekoutPage() {
         PageFactory.initElements(driver, this);
     }
 
