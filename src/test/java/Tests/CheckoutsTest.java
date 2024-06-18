@@ -18,14 +18,14 @@ public class CheckoutsTest extends BaseTest {
     }
 
     @Test (priority = 91)
-    public void priceOne() {
+    public void isPriceDisplayedOne() {
         homePage.addBackpackToCart();
         homePage.cart.click();
         Assert.assertEquals(checkoutPage.priceOne.getText(), "$29.99");
     }
 
     @Test(priority = 92)
-    public void removeOne() {
+    public void removeButtonOne() {
         checkoutPage.removeBpOne.click();
         help.smallCheckout();
         Assert.assertEquals(help.total.getText(), "Total: $0.00");
@@ -33,27 +33,27 @@ public class CheckoutsTest extends BaseTest {
     }
 
     @Test(priority = 93)
-    public void continueOne() {
+    public void continueShoppingButtonOne() {
         homePage.cart.click();
         checkoutPage.backOne.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
     @Test(priority = 94)
-    public void finishOne() {
+    public void finishButtonOne() {
         homePage.cart.click();
         help.checkoutButton.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
     }
 
     @Test(priority = 95)
-    public void cancelTwo() {
+    public void cancelButtonTwo() {
         checkoutPage.cancelTwo.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/cart.html");
     }
 
     @Test (priority = 96)
-    public void finalCancel() {
+    public void finalCancelButtonThree() {
         sideHomePage.motherBurger.click();
         sideHomePage.sideAll.click();
         help.toCheckout();

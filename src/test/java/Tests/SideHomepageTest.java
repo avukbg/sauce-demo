@@ -1,9 +1,7 @@
 package Tests;
 
 import Base.BaseTest;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -35,20 +33,20 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 20)
-    public void burgerContent() {
+    public void bmContent() {
         sideHomePage.motherBurger.click();
         Assert.assertEquals(sideHomePage.burgerList.size(), 4);
     }
 
     @Test(priority = 30)
-    public void about() {
+    public void bnAbout() {
         sideHomePage.sideAbout.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/");
         driver.navigate().back();
     }
 
     @Test(priority = 40)
-    public void allItems() {
+    public void bnAllItems() {
         homePage.cart.click();
         sideHomePage.motherBurger.click();
         sideHomePage.sideAll.click();
@@ -56,7 +54,7 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 50)
-    public void resetState() {
+    public void bnResetState() {
         homePage.addBackpackToCart();
         sideHomePage.motherBurger.click();
         sideHomePage.sideReset.click();
@@ -75,7 +73,7 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 70)
-    public void loggingOut() {
+    public void bmLoggingOut() {
         sideHomePage.motherBurger.click();
         sideHomePage.sideLogout.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
