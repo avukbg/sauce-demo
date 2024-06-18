@@ -19,7 +19,7 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 10)
-    public void addAll() {
+    public void addAllButtons() {
         homePage.addAll();
         for (WebElement x : homePage.removeButtons) {
             Assert.assertTrue(x.isDisplayed());
@@ -47,7 +47,7 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 50)
-    public void removeAll() {
+    public void removeAllButtons() {
         homePage.addAll();
         homePage.removeAll();
         for (WebElement x : homePage.addButtons) {
