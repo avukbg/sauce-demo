@@ -1,9 +1,6 @@
 package Base;
 
-import Pages.Help;
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.SideHomePage;
+import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +17,7 @@ public class BaseTest {
     public HomePage homePage;
     public Help help;
     public SideHomePage sideHomePage;
+    public ChekoutOnePage checkoutOnePage;
 
     @BeforeClass
     public void setUp() {
@@ -30,6 +28,7 @@ public class BaseTest {
         homePage = new HomePage();
         help = new Help();
         sideHomePage = new SideHomePage();
+        checkoutOnePage = new ChekoutOnePage();
     }
 }
 

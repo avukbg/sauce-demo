@@ -31,6 +31,10 @@ public class SideHomePage extends BaseTest {
     public List <WebElement> burgerList;
     @FindBy(id = "react-burger-cross-btn")
     public WebElement xBurger;
+    @FindBy (id = "inventory_sidebar_link")
+    public WebElement sideAll;
+    @FindBy (id = "reset_sidebar_link")
+    public WebElement sideReset;
 
 
     public SideHomePage() {

@@ -54,6 +54,23 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 50)
+    public void allItems() {
+        homePage.cart.click();
+        sideHomePage.motherBurger.click();
+        sideHomePage.sideAll.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+    }
+
+    @Test(priority = 60)
+    public void resetState() {
+        homePage.addBackpackToCart();
+        sideHomePage.motherBurger.click();
+        sideHomePage.sideReset.click();
+        help.toCheckout();
+        Assert.assertEquals(help.total.getText(), "Total: $0.00");
+    }
+
+    @Test(priority = 70)
     public void closeBm()  {
         sideHomePage.motherBurger.click();
         wait.until(ExpectedConditions.visibilityOf(sideHomePage.sideLogout));
@@ -63,7 +80,6 @@ public class SideHomepageTest extends BaseTest {
         Assert.assertFalse(sideHomePage.sideLogout.isDisplayed());
     }
 
-    //dodaj reset i all
     //dodaj checkout page 1 i 2
 
     @AfterClass

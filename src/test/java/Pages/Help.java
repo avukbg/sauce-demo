@@ -49,6 +49,15 @@ public class Help extends BaseTest {
         formContinue.click();
     }
 
+    public void smallCheckout() {
+
+        checkoutButton.click();
+        formName.sendKeys("Tikvica");
+        formLastname.sendKeys("Jagoda");
+        formPost.sendKeys("11000");
+        formContinue.click();
+    }
+
     public void backToMain() {
         finishButton.click();
         homeButton.click();
