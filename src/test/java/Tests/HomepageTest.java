@@ -11,7 +11,7 @@ import java.util.List;
 
 public class HomepageTest extends BaseTest {
 
-    @BeforeClass
+    @BeforeMethod
     public void pageSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -40,10 +40,12 @@ public class HomepageTest extends BaseTest {
         Assert.assertEquals(homePage.cartBadge.getText(), "6");
         help.toCheckout();
         Assert.assertEquals(help.total.getText(), "Total: $140.34");
+        help.backToMain();
     }
 
     @Test(priority = 40)
-    public void confirmOrder() {        //prebaci u checkout?
+    public void confirmOrder() {
+        help.toCheckout(); //prebaci u checkout?
         help.finishButton.click();
         Assert.assertEquals(help.thankYou.getText(), "Thank you for your order!");
         help.homeButton.click();
