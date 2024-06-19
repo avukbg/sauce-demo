@@ -62,46 +62,26 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 70)
-    public void filterSortZa() {
-        homePage.motherFilter.click();
-        homePage.filterZa.click();
-        List<String> names = homePage.getNames();
-        for (int i = 0; i < names.size() - 1; i++) {
-            Assert.assertTrue(names.get(i).compareTo(names.get(i + 1)) >= 0);
+    public void sorting() {
+        for (int i = 0; i < homePage.sortOptions().size(); i++) {
+            homePage.motherFilter.click();
+            homePage.sortOptions().get(i).click();
+            if (i < 2) {
+                List<String> names = homePage.getNames();
+                for (int j = 0; j < homePage.itemCount - 1; j++) {
+                    Assert.assertTrue((i == 0) ? names.get(j).compareTo(names.get(j + 1)) >= 0 : names.get(j).compareTo(names.get(j + 1)) <= 0);
+                }
+            } else {
+                List<Double> prices = homePage.getPrices();
+                for (int j = 0; j < homePage.itemCount - 1; j++) {
+                    Assert.assertTrue((i == 2) ? prices.get(j) <= prices.get(j + 1) : prices.get(j) >= prices.get(j + 1));
+                }
+            }
         }
     }
+
 
     @Test(priority = 80)
-    public void filterSortLohi() {
-        homePage.motherFilter.click();
-        homePage.filterLohi.click();
-        List<Double> prices = homePage.getPrices();
-        for (int i = 0; i < prices.size() - 1; i++) {
-            Assert.assertTrue(prices.get(i) <= prices.get(i + 1));
-        }
-    }
-
-    @Test(priority = 90)
-    public void filterSortHilo() {
-        homePage.motherFilter.click();
-        homePage.filterHilo.click();
-        List<Double> prices = homePage.getPrices();
-        for (int i = 0; i < prices.size() - 1; i++) {
-            Assert.assertTrue(prices.get(i) >= prices.get(i + 1));
-        }
-    }
-
-    @Test(priority = 100)
-    public void filterSortAz() {
-        homePage.motherFilter.click();
-        homePage.filterAz.click();
-        List<String> names = homePage.getNames();
-        for (int i = 0; i < names.size() - 1; i++) {
-            Assert.assertTrue(names.get(i).compareTo(names.get(i + 1)) <= 0);
-        }
-    }
-
-    @Test(priority = 110)
     public void allImagesDisplayed() {
         Assert.assertEquals(homePage.getImages().size(), 6);
         for (WebElement x : homePage.getImages()) {

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HomePage extends BaseTest {
@@ -35,7 +36,6 @@ public class HomePage extends BaseTest {
     public WebElement filterHilo;
     @FindBy(css = "[value='az']")
     public WebElement filterAz;
-
     @FindBy(className = "inventory_item_name")
     public List<WebElement> productNames;
     @FindBy(className = "inventory_item_price")
@@ -75,6 +75,13 @@ public class HomePage extends BaseTest {
         }
         return names;
     }
+
+    public List <WebElement> sortOptions() {
+        return new ArrayList<>(Arrays.asList(filterZa, filterAz, filterLohi, filterHilo));
+
+    }
+
+    public int itemCount = 6;
 
     public void addAll() {
         for (WebElement x : addButtons) {
