@@ -39,14 +39,14 @@ public class SideHomepageTest extends BaseTest {
     }
 
     @Test(priority = 30)
-    public void bnAbout() {
+    public void bmAbout() {
         sideHomePage.sideAbout.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/");
         driver.navigate().back();
     }
 
     @Test(priority = 40)
-    public void bnAllItems() {
+    public void bmAllItems() {
         homePage.cart.click();
         sideHomePage.motherBurger.click();
         sideHomePage.sideAll.click();

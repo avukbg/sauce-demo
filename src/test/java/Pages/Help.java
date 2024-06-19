@@ -50,7 +50,6 @@ public class Help extends BaseTest {
     }
 
     public void smallCheckout() {
-
         checkoutButton.click();
         formName.sendKeys("Tikvica");
         formLastname.sendKeys("Jagoda");
