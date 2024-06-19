@@ -46,12 +46,12 @@ public class HomePage extends BaseTest {
     }
 
     //slike
-    public List<WebElement> getImgs() {
-        List<WebElement> imgs = new ArrayList<>();
+    public List<WebElement> getImages() {
+        List<WebElement> images = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            imgs.add(driver.findElement(By.id("item_" + i + "_img_link")));
+            images.add(driver.findElement(By.id("item_" + i + "_img_link")));
         }
-        return imgs;
+        return images;
     }
 
     //------------------------------------------------------------------

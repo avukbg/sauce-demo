@@ -21,6 +21,23 @@ public class LoginPage extends BaseTest {
     public WebElement errorBox;
     public List<String> validUsers = new ArrayList<>(Arrays.asList("standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"));
 
+    //login 2 exp
+
+    public String errorMissingCred = "Epic sadface: Username is required";
+    public String errorLockedOut = "Epic sadface: Sorry, this user has been locked out.";
+    public String errorWrongCred = "Epic sadface: Username and password do not match any user in this service";
+    public List<String> errors = new ArrayList<>(Arrays.asList(errorMissingCred, errorLockedOut, errorWrongCred));
+
+    public String validPassword = "secret_sauce";
+    public String invalidPassword = "public_sauce";
+    public List<String> badPwOrder = new ArrayList<>(Arrays.asList("", validPassword, validPassword, invalidPassword, invalidPassword));
+
+    public String loUser = "locked_out_user";
+    public String validUser = "standard_user";
+    public String invalidUser = "unusual_user";
+    public List<String> badUserOrder = new ArrayList<>(Arrays.asList("", loUser, invalidUser, validUser, invalidUser));
+
+
     public LoginPage() {
         PageFactory.initElements(driver, this);
     }
@@ -50,17 +67,5 @@ public class LoginPage extends BaseTest {
 
     public String getError() {
         return errorBox.getText();
-    }
-
-    public String getErrorMissingCred() {
-        return "Epic sadface: Username is required";
-    }
-
-    public String getErrorWrongCred() {
-        return "Epic sadface: Username and password do not match any user in this service";
-    }
-
-    public String getErrorLockedOut() {
-        return "Epic sadface: Sorry, this user has been locked out.";
     }
 }

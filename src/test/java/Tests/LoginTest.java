@@ -14,7 +14,6 @@ public class LoginTest extends BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.saucedemo.com/");
-
     }
 
     @BeforeMethod
@@ -23,39 +22,18 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(priority = 10)
-    public void emptyLogin() {
-        loginPage.clickOnLoginButton();
-        Assert.assertEquals(loginPage.getError(), loginPage.getErrorMissingCred());
+    public void invalidLogins() {
+        for (int i = 0; i < 5; i++) {
+            loginPage.loginForm(loginPage.badUserOrder.get(i), loginPage.badPwOrder.get(i));
+            Assert.assertEquals(loginPage.getError(), loginPage.errors.get((i <= 1) ? i : 2));
+            driver.navigate().refresh();
+        }
     }
 
     @Test(priority = 20)
-    public void invalidUserValidPass() {
-        loginPage.loginForm("unusual_user", "secret_sauce");
-        Assert.assertEquals(loginPage.getError(), loginPage.getErrorWrongCred());
-    }
-
-    @Test(priority = 30)
-    public void validUserInvalidPass() {
-        loginPage.loginForm("standard_user", "public_sauce");
-        Assert.assertEquals(loginPage.getError(), loginPage.getErrorWrongCred());
-    }
-
-    @Test(priority = 40)
-    public void invalidUserInvalidPass() {
-        loginPage.loginForm("unusual_user", "public_sauce");
-        Assert.assertEquals(loginPage.getError(), loginPage.getErrorWrongCred());
-    }
-
-    @Test(priority = 50)
-    public void lockedOutUserValidPass() {
-        loginPage.loginForm("locked_out_user", "secret_sauce");
-        Assert.assertEquals(loginPage.getError(), loginPage.getErrorLockedOut());
-    }
-
-    @Test(priority = 60)
-    public void validUserValidPass() {
+    public void validLogins() {
         for (String validUser : loginPage.validUsers) {
-            loginPage.loginForm(validUser, "secret_sauce");
+            loginPage.loginForm(validUser, loginPage.validPassword);
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
             help.logout();
         }

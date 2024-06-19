@@ -103,8 +103,8 @@ public class HomepageTest extends BaseTest {
 
     @Test(priority = 110)
     public void allImagesDisplayed() {
-        Assert.assertEquals(homePage.getImgs().size(), 6);
-        for (WebElement x : homePage.getImgs()) {
+        Assert.assertEquals(homePage.getImages().size(), 6);
+        for (WebElement x : homePage.getImages()) {
             Assert.assertTrue(x.isDisplayed());
         }
     }
