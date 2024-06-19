@@ -66,14 +66,12 @@ public class HomepageTest extends BaseTest {
     public void filterSortZa() {
         homePage.motherFilter.click();
         homePage.filterZa.click();
-        List<String> scrapedNames = new ArrayList<>();
-        for (WebElement element : homePage.productNames) {
-            scrapedNames.add(element.getText().trim());
+        List<String> names = new ArrayList<>();
+        for (WebElement x : homePage.productNames) {
+            names.add(x.getText());
         }
-        for (int i = 0; i < scrapedNames.size() - 1; i++) {
-            String currentName = scrapedNames.get(i);
-            String nextName = scrapedNames.get(i + 1);
-            Assert.assertTrue(currentName.compareTo(nextName) >= 0);
+        for (int i = 0; i < names.size() - 1; i++) {
+            Assert.assertTrue(names.get(i).compareTo(names.get(i + 1)) >= 0);
         }
     }
 
@@ -81,14 +79,12 @@ public class HomepageTest extends BaseTest {
     public void filterSortLohi() {
         homePage.motherFilter.click();
         homePage.filterLohi.click();
-        List<String> scrapedPrices = new ArrayList<>();
-        for (WebElement element : homePage.productPrices) {
-            scrapedPrices.add(element.getText().trim().replace("$", ""));
+        List<Double> prices = new ArrayList<>();
+        for (WebElement x : homePage.productPrices) {
+            prices.add(Double.parseDouble(x.getText().substring(1)));
         }
-        for (int i = 0; i < scrapedPrices.size() - 1; i++) {
-            double currentPrice = Double.parseDouble(scrapedPrices.get(i));
-            double nextPrice = Double.parseDouble(scrapedPrices.get(i + 1));
-            Assert.assertTrue(currentPrice <= nextPrice);
+        for (int i = 0; i < prices.size() - 1; i++) {
+            Assert.assertTrue(prices.get(i) <= prices.get(i+1));
         }
     }
 
@@ -96,14 +92,12 @@ public class HomepageTest extends BaseTest {
     public void filterSortHilo() {
         homePage.motherFilter.click();
         homePage.filterHilo.click();
-        List<String> scrapedPrices = new ArrayList<>();
-        for (WebElement element : homePage.productPrices) {
-            scrapedPrices.add(element.getText().trim().replace("$", ""));
+        List<Double> prices = new ArrayList<>();
+        for (WebElement x : homePage.productPrices) {
+            prices.add(Double.parseDouble(x.getText().substring(1)));
         }
-        for (int i = 0; i < scrapedPrices.size() - 1; i++) {
-            double currentPrice = Double.parseDouble(scrapedPrices.get(i));
-            double nextPrice = Double.parseDouble(scrapedPrices.get(i + 1));
-            Assert.assertTrue(currentPrice >= nextPrice);
+        for (int i = 0; i < prices.size() - 1; i++) {
+            Assert.assertTrue(prices.get(i) >= prices.get(i+1));
         }
     }
 
@@ -111,14 +105,12 @@ public class HomepageTest extends BaseTest {
     public void filterSortAz() {
         homePage.motherFilter.click();
         homePage.filterAz.click();
-        List<String> scrapedNames = new ArrayList<>();
-        for (WebElement element : homePage.productNames) {
-            scrapedNames.add(element.getText().trim());
+        List<String> names = new ArrayList<>();
+        for (WebElement x : homePage.productNames) {
+            names.add(x.getText());
         }
-        for (int i = 0; i < scrapedNames.size() - 1; i++) {
-            String currentName = scrapedNames.get(i);
-            String nextName = scrapedNames.get(i + 1);
-            Assert.assertTrue(currentName.compareTo(nextName) <= 0);
+        for (int i = 0; i < names.size() - 1; i++) {
+            Assert.assertTrue(names.get(i).compareTo(names.get(i + 1)) <= 0);
         }
     }
 
