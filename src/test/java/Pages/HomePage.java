@@ -49,9 +49,7 @@ public class HomePage extends BaseTest {
     public List<WebElement> getImgs() {
         List<WebElement> imgs = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            String imageId = "item_" + i + "_img_link";
-            WebElement imageElement = driver.findElement(By.id(imageId));
-            imgs.add(imageElement);
+            imgs.add(driver.findElement(By.id("item_" + i + "_img_link")));
         }
         return imgs;
     }
