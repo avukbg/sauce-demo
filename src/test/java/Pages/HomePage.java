@@ -62,6 +62,22 @@ public class HomePage extends BaseTest {
         addBackpack.click();
     }
 
+    public List<Double> getPrices() {
+        List<Double> prices = new ArrayList<>();
+        for (WebElement x : productPrices) {
+            prices.add(Double.parseDouble(x.getText().substring(1)));
+        }
+        return prices;
+    }
+
+    public List<String> getNames() {
+        List<String> names = new ArrayList<>();
+        for (WebElement x : productNames) {
+            names.add(x.getText());
+        }
+        return names;
+    }
+
     public void addAll() {
         for (WebElement x : addButtons) {
             x.click();

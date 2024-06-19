@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomepageTest extends BaseTest {
@@ -66,10 +65,7 @@ public class HomepageTest extends BaseTest {
     public void filterSortZa() {
         homePage.motherFilter.click();
         homePage.filterZa.click();
-        List<String> names = new ArrayList<>();
-        for (WebElement x : homePage.productNames) {
-            names.add(x.getText());
-        }
+        List<String> names = homePage.getNames();
         for (int i = 0; i < names.size() - 1; i++) {
             Assert.assertTrue(names.get(i).compareTo(names.get(i + 1)) >= 0);
         }
@@ -79,10 +75,7 @@ public class HomepageTest extends BaseTest {
     public void filterSortLohi() {
         homePage.motherFilter.click();
         homePage.filterLohi.click();
-        List<Double> prices = new ArrayList<>();
-        for (WebElement x : homePage.productPrices) {
-            prices.add(Double.parseDouble(x.getText().substring(1)));
-        }
+        List<Double> prices = homePage.getPrices();
         for (int i = 0; i < prices.size() - 1; i++) {
             Assert.assertTrue(prices.get(i) <= prices.get(i+1));
         }
@@ -92,10 +85,7 @@ public class HomepageTest extends BaseTest {
     public void filterSortHilo() {
         homePage.motherFilter.click();
         homePage.filterHilo.click();
-        List<Double> prices = new ArrayList<>();
-        for (WebElement x : homePage.productPrices) {
-            prices.add(Double.parseDouble(x.getText().substring(1)));
-        }
+        List<Double> prices = homePage.getPrices();
         for (int i = 0; i < prices.size() - 1; i++) {
             Assert.assertTrue(prices.get(i) >= prices.get(i+1));
         }
@@ -105,10 +95,7 @@ public class HomepageTest extends BaseTest {
     public void filterSortAz() {
         homePage.motherFilter.click();
         homePage.filterAz.click();
-        List<String> names = new ArrayList<>();
-        for (WebElement x : homePage.productNames) {
-            names.add(x.getText());
-        }
+        List<String> names = homePage.getNames();
         for (int i = 0; i < names.size() - 1; i++) {
             Assert.assertTrue(names.get(i).compareTo(names.get(i + 1)) <= 0);
         }
