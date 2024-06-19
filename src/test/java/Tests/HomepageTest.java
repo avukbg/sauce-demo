@@ -68,18 +68,17 @@ public class HomepageTest extends BaseTest {
             homePage.sortOptions().get(i).click();
             if (i < 2) {
                 List<String> names = homePage.getNames();
-                for (int j = 0; j < homePage.itemCount - 1; j++) {
+                for (int j = 0; j < names.size() - 1; j++) {
                     Assert.assertTrue((i == 0) ? names.get(j).compareTo(names.get(j + 1)) >= 0 : names.get(j).compareTo(names.get(j + 1)) <= 0);
                 }
             } else {
                 List<Double> prices = homePage.getPrices();
-                for (int j = 0; j < homePage.itemCount - 1; j++) {
+                for (int j = 0; j < prices.size() - 1; j++) {
                     Assert.assertTrue((i == 2) ? prices.get(j) <= prices.get(j + 1) : prices.get(j) >= prices.get(j + 1));
                 }
             }
         }
     }
-
 
     @Test(priority = 80)
     public void allImagesDisplayed() {

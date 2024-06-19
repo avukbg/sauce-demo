@@ -76,12 +76,10 @@ public class HomePage extends BaseTest {
         return names;
     }
 
-    public List <WebElement> sortOptions() {
+    public List<WebElement> sortOptions() {
         return new ArrayList<>(Arrays.asList(filterZa, filterAz, filterLohi, filterHilo));
 
     }
-
-    public int itemCount = 6;
 
     public void addAll() {
         for (WebElement x : addButtons) {

@@ -43,7 +43,7 @@ public class SideHomePage extends BaseTest {
 
     //-------------------------------------------------------
 
-    public List <WebElement> getButtons() {
+    public List<WebElement> getButtons() {
         buttons = new ArrayList<>(Arrays.asList(xButton, fbButton, lnButton));
         return buttons;
     }
