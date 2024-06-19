@@ -77,7 +77,7 @@ public class HomepageTest extends BaseTest {
         homePage.filterLohi.click();
         List<Double> prices = homePage.getPrices();
         for (int i = 0; i < prices.size() - 1; i++) {
-            Assert.assertTrue(prices.get(i) <= prices.get(i+1));
+            Assert.assertTrue(prices.get(i) <= prices.get(i + 1));
         }
     }
 
@@ -87,7 +87,7 @@ public class HomepageTest extends BaseTest {
         homePage.filterHilo.click();
         List<Double> prices = homePage.getPrices();
         for (int i = 0; i < prices.size() - 1; i++) {
-            Assert.assertTrue(prices.get(i) >= prices.get(i+1));
+            Assert.assertTrue(prices.get(i) >= prices.get(i + 1));
         }
     }
 
@@ -104,8 +104,8 @@ public class HomepageTest extends BaseTest {
     @Test(priority = 110)
     public void allImagesDisplayed() {
         Assert.assertEquals(homePage.getImgs().size(), 6);
-        for (WebElement element : homePage.getImgs()) {
-            Assert.assertTrue(element.isDisplayed());
+        for (WebElement x : homePage.getImgs()) {
+            Assert.assertTrue(x.isDisplayed());
         }
     }
 

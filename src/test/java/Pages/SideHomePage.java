@@ -50,9 +50,9 @@ public class SideHomePage extends BaseTest {
 
     public void switchToNewTab() {
         String mainHandle = driver.getWindowHandle();
-        for (String handle : driver.getWindowHandles()) {
-            if (!handle.equals(mainHandle)) {
-                driver.switchTo().window(handle);
+        for (String x : driver.getWindowHandles()) {
+            if (!x.equals(mainHandle)) {
+                driver.switchTo().window(x);
                 break;
             }
         }
