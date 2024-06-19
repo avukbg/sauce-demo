@@ -20,6 +20,7 @@ public class SideHomePage extends BaseTest {
     public List<WebElement> buttons;
     public List<String> urls = new ArrayList<>(Arrays.asList("https://x.com/saucelabs", "https://www.facebook.com/saucelabs", "https://www.linkedin.com/company/sauce-labs/"));
 
+
     //side stuff
     @FindBy(id = "react-burger-menu-btn")
     public WebElement motherBurger;
@@ -39,10 +40,14 @@ public class SideHomePage extends BaseTest {
 
     public SideHomePage() {
         PageFactory.initElements(driver, this);
-        buttons = new ArrayList<>(Arrays.asList(xButton, fbButton, lnButton));
     }
 
     //-------------------------------------------------------
+
+    public List <WebElement> getButtons() {
+        buttons = new ArrayList<>(Arrays.asList(xButton, fbButton, lnButton));
+        return buttons;
+    }
 
     public void switchToNewTab() {
         String mainHandle = driver.getWindowHandle();

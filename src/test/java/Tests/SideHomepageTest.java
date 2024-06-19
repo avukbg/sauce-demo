@@ -22,7 +22,7 @@ public class SideHomepageTest extends BaseTest {
         String main = driver.getWindowHandle();
 
         for (int i = 0; i < 3; i++) {
-            sideHomePage.buttons.get(i).click();
+            sideHomePage.getButtons().get(i).click();
             sideHomePage.switchToNewTab();
             //wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
             wait.until(ExpectedConditions.urlToBe(sideHomePage.urls.get(i)));
