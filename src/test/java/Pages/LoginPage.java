@@ -38,6 +38,7 @@ public class LoginPage extends BaseTest {
     public List<String> badUserOrder = new ArrayList<>(Arrays.asList("", loUser, validUser, invalidUser, invalidUser));
     // sa 4  (i>2) ? 3 : i
 
+
     public LoginPage() {
         PageFactory.initElements(driver, this);
     }
@@ -63,6 +64,10 @@ public class LoginPage extends BaseTest {
         inputUsername(username);
         inputPassword(password);
         clickOnLoginButton();
+    }
+
+    public int minSize() {
+        return Math.min(badUserOrder.size(), badPwOrder.size());
     }
 
     public String getError() {
