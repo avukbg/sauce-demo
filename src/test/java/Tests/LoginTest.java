@@ -16,11 +16,6 @@ public class LoginTest extends BaseTest {
         driver.get(help.sdUrl);
     }
 
-    @BeforeMethod
-    public void refresh() {
-        driver.navigate().refresh();
-    }
-
     @Test(priority = 10)
     public void invalidLogins() {
         for (int i = 0; i < 5; i++) {
