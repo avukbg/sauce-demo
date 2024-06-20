@@ -17,7 +17,6 @@ public class SideHomePage extends BaseTest {
     public WebElement fbButton;
     @FindBy(className = "social_linkedin")
     public WebElement lnButton;
-    public List<WebElement> buttons;
     public List<String> urls = new ArrayList<>(Arrays.asList("https://x.com/saucelabs", "https://www.facebook.com/saucelabs", "https://www.linkedin.com/company/sauce-labs/"));
 
     //side stuff
@@ -44,8 +43,7 @@ public class SideHomePage extends BaseTest {
     //-------------------------------------------------------
 
     public List<WebElement> getButtons() {
-        buttons = new ArrayList<>(Arrays.asList(xButton, fbButton, lnButton));
-        return buttons;
+        return new ArrayList<>(Arrays.asList(xButton, fbButton, lnButton));
     }
 
     public void switchToNewTab() {
