@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 10)
     public void invalidLogins() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < loginPage.badUserOrder.size(); i++) {
             loginPage.loginForm(loginPage.badUserOrder.get(i), loginPage.badPwOrder.get(i));
             Assert.assertEquals(loginPage.getError(), loginPage.errors.get((i <= 1) ? i : 2));
             driver.navigate().refresh();
