@@ -8,6 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Help extends BaseTest {
 
+    //linkovi
+
+    public String sdUrl = "https://www.saucedemo.com/";
+    public String sdHomeUrl = "https://www.saucedemo.com/inventory.html";
+
     //boring form stuff
     @FindBy(className = "shopping_cart_link")
     public WebElement cart;
@@ -66,7 +71,7 @@ public class Help extends BaseTest {
 
     //login
     public void login() {
-        driver.get("https://www.saucedemo.com/");
+        driver.get(sdUrl);
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("password")).submit();

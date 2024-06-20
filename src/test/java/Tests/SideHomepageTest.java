@@ -41,7 +41,7 @@ public class SideHomepageTest extends BaseTest {
     @Test(priority = 30)
     public void bmAbout() {
         sideHomePage.sideAbout.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/");
+        Assert.assertEquals(driver.getCurrentUrl(), sideHomePage.aboutUrl);
         driver.navigate().back();
     }
 
@@ -50,7 +50,7 @@ public class SideHomepageTest extends BaseTest {
         homePage.cart.click();
         sideHomePage.motherBurger.click();
         sideHomePage.sideAll.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+        Assert.assertEquals(driver.getCurrentUrl(), help.sdHomeUrl);
     }
 
     @Test(priority = 50)
@@ -76,7 +76,7 @@ public class SideHomepageTest extends BaseTest {
     public void bmLoggingOut() {
         sideHomePage.motherBurger.click();
         sideHomePage.sideLogout.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+        Assert.assertEquals(driver.getCurrentUrl(), help.sdUrl);
     }
 
     @AfterClass

@@ -36,20 +36,20 @@ public class CheckoutsTest extends BaseTest {
     public void continueShoppingButtonOne() {
         homePage.cart.click();
         checkoutPage.backOne.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+        Assert.assertEquals(driver.getCurrentUrl(), help.sdHomeUrl);
     }
 
     @Test(priority = 40)
     public void finishButtonOne() {
         homePage.cart.click();
         help.checkoutButton.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
+        Assert.assertEquals(driver.getCurrentUrl(), checkoutPage.checkOutOneUrl);
     }
 
     @Test(priority = 50)
     public void cancelButtonTwo() {
         checkoutPage.cancelTwo.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/cart.html");
+        Assert.assertEquals(driver.getCurrentUrl(), checkoutPage.cartUrl);
     }
 
     @Test(priority = 60)
@@ -58,7 +58,7 @@ public class CheckoutsTest extends BaseTest {
         sideHomePage.sideAll.click();
         help.toCheckout();
         checkoutPage.cancelTwo.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+        Assert.assertEquals(driver.getCurrentUrl(), help.sdHomeUrl);
     }
 
     @AfterClass

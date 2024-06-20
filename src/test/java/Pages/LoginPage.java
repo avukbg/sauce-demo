@@ -31,12 +31,12 @@ public class LoginPage extends BaseTest {
     public String validPassword = "secret_sauce";
     public String invalidPassword = "public_sauce";
     public List<String> badPwOrder = new ArrayList<>(Arrays.asList("", validPassword, invalidPassword, validPassword, invalidPassword));
-                            // sa 3  (i%2==1) ? 1 : (i==0 ? 0 : 2)
+    // sa 3  (i%2==1) ? 1 : (i==0 ? 0 : 2)
     public String loUser = "locked_out_user";
     public String validUser = "standard_user";
     public String invalidUser = "unusual_user";
     public List<String> badUserOrder = new ArrayList<>(Arrays.asList("", loUser, validUser, invalidUser, invalidUser));
-                             // sa 4  (i>2) ? 3 : i
+    // sa 4  (i>2) ? 3 : i
 
     public LoginPage() {
         PageFactory.initElements(driver, this);

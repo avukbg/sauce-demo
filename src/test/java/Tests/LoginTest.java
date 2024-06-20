@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
     public void pageSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.saucedemo.com/");
+        driver.get(help.sdUrl);
     }
 
     @BeforeMethod
@@ -34,7 +34,7 @@ public class LoginTest extends BaseTest {
     public void validLogins() {
         for (String validUser : loginPage.validUsers) {
             loginPage.loginForm(validUser, loginPage.validPassword);
-            Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+            Assert.assertEquals(driver.getCurrentUrl(), help.sdHomeUrl);
             help.logout();
         }
     }

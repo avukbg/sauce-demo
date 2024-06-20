@@ -16,11 +16,15 @@ public class CheckoutPage extends BaseTest {
     @FindBy(id = "cancel")
     public WebElement cancelTwo;
 
+    //linkovi
+
+    public String checkOutOneUrl = "https://www.saucedemo.com/checkout-step-one.html";
+    public String cartUrl = "https://www.saucedemo.com/cart.html";
+
     public CheckoutPage() {
         PageFactory.initElements(driver, this);
     }
 
     //-----------------------------------------------
-
 
 }

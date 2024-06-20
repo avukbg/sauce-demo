@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SideHomePage extends BaseTest {
+
+    //link
+    public String aboutUrl = "https://saucelabs.com/";
     //socials
     @FindBy(className = "social_twitter")
     public WebElement xButton;
